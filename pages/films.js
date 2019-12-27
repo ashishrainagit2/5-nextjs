@@ -6,16 +6,12 @@ import { getSeriesPosts } from '../redux/actions/seriesListAction';
 import axios from 'axios';
 import MovieCard from '../components/MovieCard';
 import Head from "../components/Head";
-import Button from '../components/UI/Button';
 
 const Index = props => {
     const handleSubmit = e => {
         e.preventDefault();
         props.getPosts();
     };
-    const buttonHandler = () => {
-        console.log("here")
-    }
     return (
         <div>
             <Head title="test"/>
@@ -28,7 +24,6 @@ const Index = props => {
                                 <MovieCard list={value}/>
                                 )
                             })}
-                            <Button path="films" title="More Movies"/>
                         </div>
 
                         <div className="movieCardHolder">
@@ -39,7 +34,6 @@ const Index = props => {
                                     <img src= {"https://image.tmdb.org/t/p/w300/" + value.poster_path}/>
                                 )
                             })}
-                            <Button path="series" title="More Series"/>
                         </div>
                 </div>
             </Layout>
@@ -60,5 +54,6 @@ Index.getInitialProps = async ({ store, isServer, pathname, query }) => {
 };
 
 export default connect(
-     state => state
+     state => state,
+    { getPosts }
 )(Index);
