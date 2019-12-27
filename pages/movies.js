@@ -2,15 +2,15 @@ import Layout from '../components/Layout';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getPosts } from '../redux/actions/movieListActions';
-import { getSeriesPosts } from '../redux/actions/seriesListAction';
 import axios from 'axios';
 import MovieCard from '../components/MovieCard';
 import Head from "../components/Head";
+import LoadMoreButton from '../components/UI/LoadMoreButton';
 
 const Index = props => {
-    const handleSubmit = e => {
-        e.preventDefault();
-        props.getPosts();
+    const handler = e => {
+        console.log("handler initialized");
+        getPosts(2);
     };
     return (
         <div>
@@ -24,16 +24,7 @@ const Index = props => {
                                 <MovieCard list={value}/>
                                 )
                             })}
-                        </div>
-
-                        <div className="movieCardHolder">
-                            <h2>Popular Series</h2>
-                            {/* {console.log("==0==" ,props)} */}
-                            {props.SeriesList.details.results.map((value , i)=>{
-                                return (
-                                    <img src= {"https://image.tmdb.org/t/p/w300/" + value.poster_path}/>
-                                )
-                            })}
+                           <LoadMoreButton title="Lode More" path="movies" handler={handler}/>
                         </div>
                 </div>
             </Layout>
@@ -49,11 +40,10 @@ const Index = props => {
 
 Index.getInitialProps = async ({ store, isServer, pathname, query }) => {
     await store.dispatch(getPosts());
-    await store.dispatch(getSeriesPosts());
     return { custom: 'custom' };
 };
 
 export default connect(
      state => state,
-    { getPosts }
+     { getPosts }
 )(Index);
