@@ -1,12 +1,12 @@
-import Layout from '../components/Layout';
+import Layout from '../components/GroupedComponent/Layout';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getPosts } from '../redux/actions/movieListActions';
 import { getSeriesPosts } from '../redux/actions/seriesListAction';
 import axios from 'axios';
-import MovieCard from '../components/MovieCard';
-import Head from "../components/Head";
-import Button from '../components/UI/Button';
+import MovieCard from '../components/GroupedComponent/MovieCard';
+
+import Button from '../components/UIComponents/Button';
 
 const Index = props => {
     const handleSubmit = e => {
@@ -18,7 +18,7 @@ const Index = props => {
     }
     return (
         <div>
-            <Head title="test"/>
+            
             <Layout title="Movie and Series List">
                 <div>
                         <div className="movieCardHolder">

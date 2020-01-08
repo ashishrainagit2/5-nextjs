@@ -2,7 +2,8 @@ import Link from 'next/link';
 import Nav from './nav'
 import Footer from './Footer'
 
-const Layout = ({ children, title }) => (
+
+const Layout = ({ children }) => (
   <div>
     <div>
         <Nav />

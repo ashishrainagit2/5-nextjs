@@ -1,11 +1,23 @@
 import { MovieListUpload } from '../actionTypes';
 
-const reducer = (state = {details : 'Loading...'  }, action) => {
+
+const initialState = {
+    details : 'Loading...',
+    pageNumber : 0
+}
+
+const reducer = (state = initialState, action, ) => {
     switch (action.type) {
         case MovieListUpload:
+            console.log("reducer")
              console.dir( action);
-            let changed = {details : action.payload }
-            return { ...state, ...changed};
+            let detailsUpdated = action.payload 
+            let updatedPageNumber = state.pageNumber + 1
+
+            return { ...state, 
+                    details : detailsUpdated,
+                    pageNumber : updatedPageNumber
+                    };
         default:
             return state;
     }

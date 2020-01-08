@@ -50,11 +50,33 @@ const Nav = () => (
             <a>Movies</a>
           </Link>
         </li>
-        {links.map(({ key, href, label }) => (
-          <li key={key}>
-            <a href={href}>{label}</a> 
-          </li>
-        ))}
+
+        <li>
+          <Link href='/films' replace scroll={false} passHref prefetch={false}>
+            <a>Films</a>
+          </Link>
+        </li>
+
+        <li>
+          <Link href='/reentlyAdded' replace scroll={false} passHref prefetch={false}>
+            <a>Recentely added</a>
+          </Link>
+        </li>
+
+        <li>
+          <Link href='/mylist' replace scroll={false} passHref prefetch={false}>
+            <a>My List</a>
+          </Link>
+        </li>
+
+        <li>
+          <Link href='/Streaming' replace scroll={false} passHref prefetch={false}>
+            <a>Streaming</a>
+          </Link>
+        </li>
+
+
+       
         
       </ul>
     </div>
