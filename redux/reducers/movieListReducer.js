@@ -9,8 +9,8 @@ const initialState = {
 const reducer = (state = initialState, action, ) => {
     switch (action.type) {
         case MovieListUpload:
-            console.log("reducer")
-             console.dir( action);
+            console.log("reducer MovieListUpload")
+            console.dir( action);
             let detailsUpdated = action.payload 
             let updatedPageNumber = state.pageNumber + 1
 

@@ -2,7 +2,7 @@ import axios from 'axios';
 import { MovieListUpload } from '../actionTypes';
 
 export const getPosts = (num) => {
-    console.log("movie list actions",  num);
+    console.log("get post action called with num = ",  num);
     return dispatch =>
     axios({
       method: 'GET',
